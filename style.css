@@ -54,53 +54,77 @@ body {
       "image"
       "text";              /* image first, then text */
     text-align: center;
-    margin-top: 0;         /* avoid cropping on small screens */
+    margin-top: -100px;         /* avoid cropping on small screens */
     margin-bottom: 0;
   }
   .container .image img {
-    margin: 0 auto 10px;   /* center image */
-    max-width: 420px;      /* optional cap */
+    margin-bottom: -100px;   /* center image */
+    max-width: 350px;      /* optional cap */
   }
 }
+/* Base section spacing */
+section { padding: 50px; background:#000; color:#fff; }
+section a { color:#ca6ed0; }
 
-section {
-  padding: 50px;
-  background-color: #000000;
-  color: #ffffff;
+/* About layout (desktop/tablet) */
+.aboutme{
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+  max-width:1000px;
+  margin:0 auto 40px;     /* remove the -100px; */
+  padding:20px;
 }
-section a{
-  color: #ca6ed0;  
+.aboutme h2{ text-align:left; color:#ca6ed0; margin:0 0 10px; }
+
+.about-img{
+  width:100%;
+  max-width:350px;        /* photo width on desktop */
+  height:auto;
+  border-radius:10px;
+  object-fit:cover;
 }
-.aboutme {
-  display: flex;
-  align-items: flex-start; /* align image & text at the top */
-  gap: 20px; /* spacing between image and text */
-  max-width: 1000px;
-  margin-bottom: -100px;
-  padding: 20px;
-}
-.aboutme h2{
-    text-align: center;
-    color: #ca6ed0;
-}
-.aboutme img {
-  border-radius: 10px;
+.abouttext{
+  flex:1;
+  font-size:16px;
+  line-height:1.6;
+  min-width:260px;
 }
 
-.abouttext {
-  color: #ffffff; /* your yellow text */
-  font-size: 16px;
-  line-height: 1.6;
-}/* Skills Section */
-.skills {
-  padding: 60px 20px;
-  text-align: center;
+/* ---------- Mobile: image on top, centered ---------- */
+@media (max-width:768px){
+  section{ padding:24px 16px; }              /* smaller global padding */
+  .aboutme{
+    flex-direction:column;                    /* stack */
+    align-items:center;
+    text-align:center;
+    gap:16px;
+    margin:0 auto 24px;                       /* no negative margin */
+  }
+  .aboutme h2{ text-align:center; font-size:1.6rem; }
+
+  /* If you still have inline size on the <img>, force override */
+  .about-img{
+    width:min(80vw, 320px);
+    height:auto !important;                   /* beats inline height */
+    margin:0 auto;
+  }
+
+  .abouttext{ font-size:15.5px; line-height:1.65; }
 }
+
+/* Ultra small phones */
+@media (max-width:380px){
+  .about-img{ width:90vw; }
+  .aboutme h2{ font-size:1.35rem; }
+}
+
 
 .skills h2 {
   font-size: 2rem;
   color: #ca6ed0;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 /* Grid Layout: 5 columns */
@@ -285,4 +309,3 @@ footer {
   background: #fff;
   color: #ca6ed0;
 }
-
