@@ -76,7 +76,16 @@ section a { color:#ca6ed0; }
   padding:20px;
 }
 .aboutme h2{ text-align:left; color:#ca6ed0; margin:0 0 10px; }
-
+/* Justify the About Me paragraphs */
+.abouttext p {
+  text-align: justify;
+  text-justify: inter-word;    /* improves spacing in supporting browsers */
+  -webkit-hyphens: auto;       /* optional: nicer wrapping */
+  -ms-hyphens: auto;
+  hyphens: auto;
+  line-height: 1.65;           /* readability */
+}
+ 
 .about-img{
   width:100%;
   max-width:350px;        /* photo width on desktop */
@@ -309,3 +318,4 @@ footer {
   background: #fff;
   color: #ca6ed0;
 }
+
